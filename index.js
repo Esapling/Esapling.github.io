@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     emailLink.href = `mailto:${user}@${domain}?subject=${subject}&body=${body}`;
 });
 document.addEventListener("DOMContentLoaded", function () {
-    var link = document.getElementById("project-link-website");
+    var link = document.getElementById("project-link-button");
     link.href = "https://github.com/Esapling/Shopping-Website-Database-Project";
 });
 

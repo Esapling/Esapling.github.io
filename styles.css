@@ -167,19 +167,30 @@ body {
     width: 25%;
     text-align: center;
     padding: 0.5rem;
-    /* background-color: rgba(246, 181, 96, 0.398); */
-    margin-right: 1rem;
+    background-color: rgba(246, 181, 96, 0.4);
+    margin: 2rem;
     border-radius: 10%;
+
 }
-.card-body .card-button{
-    width: 50%;
-    height: 100%;
+.card-title{
+    color: var(--light-color);
 }
 .card-body p{
     text-align: start;
-    font-size: 1rem;
-    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
     font-weight: bolder;
+    color: black;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#project-link-button{
+    max-width: 60%;
+    width: 10rem;
 }
 .card-title{
     font-weight: bold;
@@ -224,75 +235,76 @@ body {
     text-decoration: none; /* Remove underline */
 }
 
-button {
-    --button-width: auto; /* default value */
-    margin-top: 1rem;
-    border: none;
-    color: white;
-    border-radius: 1rem;
-    background: #7ed998;
-    transition: ease-out 0.7s;
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1rem;
-    --button-width: calc(100%);
-
-}
-button:hover, .cv-button:hover {
-    box-shadow: inset var(--button-width) 0 0 rgb(102, 217, 255);
-    color: black;
-    transform: translateY(0.5rem);
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:focus , cv-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.5);
-}
-
-button:active {
-    transform: translateY(0);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-}
-
-.cv-button{
-    display: inline-flex;
-    align-items: center;
+.button-general {
+    position: relative;
+    display: flex;
     justify-content: center;
-    background-color: #7ed998;
-    border: none;
-    color: white;
-    border-radius: 1rem;    
-    background: #7ed998;
-    transition: ease-out 0.7s;
+    width: 35%;
+    height: 7%;
+    max-width: 15rem;
+    max-height: 8rem;
+    align-items: center;
+    background-color: rgb(102, 217, 255);
+    border: 1px solid black ;
+    border-radius: 1rem;
+    text-decoration: none; 
+    margin-top: 1rem;
+    color: var(--light-color);
+    font-size: 1rem;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1rem;
-    text-align: center;
-    text-decoration: none;
-    height: 2.5rem;
-    width: 12rem;
-    z-index: 10;
+    z-index: 100;
+    cursor: pointer;
+    overflow: hidden; /* Ensure the ::before element does not overflow */
+    color: black;
+
+
+}
+.button-general:hover{
+    color: black;
+}
+.button-general::before{
+    position: absolute;
+    content: "";
+    width: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: width 0.6s ease-in-out;
+    background-color: #7ed998;
+
+    z-index: -1; /* Place the ::before element behind the text */
 }
 
+
+.button-general:hover::before{
+    width: 100%;
+}
+
+.button-general:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.5); /* Custom focus outline */
+    border: none;
+
+}
+
+/* Active Effect */
+.button-general:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3); /* Simulate button press */
+    border: none;
+}
 .card-img-top {
     height: 18rem; /* Adjust height according to your design */
     width: 90%;
     object-position: center; /* Center the image within its box */
 }
 
-#card-img{
-    border: 1px solid black;
-
-}
-
 
 .header-scroll-down{
     background-color: rgba(18, 17, 17, 0.806);
 }
-
 
 .menu-container{
     position: relative; /*Allow menu list to be relatively positioned*/
@@ -351,6 +363,10 @@ button:active {
     .menu-container{
         display: none;
     }
+    .card{
+        min-width: 250px; 
+
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -370,7 +386,7 @@ button:active {
     }
     .card{
         margin-top: 2rem;
-        width: 65%;
+        width: 75%;
     }
 }
 
